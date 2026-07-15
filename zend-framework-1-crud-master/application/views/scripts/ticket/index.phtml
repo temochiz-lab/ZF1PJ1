@@ -1,0 +1,55 @@
+<?php
+//print_r($this->blogTopics);
+
+if ( count($this->blogTopics) >= 1) { ?>
+    <div class="container">
+        <h2> Ticket System v 0.1 </h2>
+
+
+        <p>The zend framework crud operation tutorial (extra upload,pagination,cvs export)</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Notes</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <?php
+            //echo Zend_Version::getLatest();
+
+            foreach ($this->blogTopics as $key => $value) { ?>
+                <tbody>
+                <tr>
+                    <td><?php echo $value->getTitle(); ?></td>
+                    <td><?php echo $this->escape($value->getNotes()); ?></td>
+                    <td><?php echo $this->displayDate($value->getCreatedat()); ?></td>
+                    <td><a href="<?php echo $this->baseURL('ticket/edit/' . $value->getId()); ?>">
+                            <button type="button" class="btn btn-success">Edit</button>
+                        </a>
+                        <a href="<?php echo $this->baseURL('ticket/delete/' . $value->getId()); ?>">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            <?php }
+             if (count($this->paginator)): ?>
+                <ul>
+                    <?php  foreach ($this->paginator as $item): ?>
+                        <li><?php echo $item; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif;
+
+            //This is used for pagination
+            echo $this->paginationControl($this->blogTopics, 'Sliding', 'controls.phtml');
+            ?>
+        </table>
+    </div>
+<?php } else { ?>
+    <div class="alert alert-info">
+        No record found!
+    </div>
+<?php } ?>
