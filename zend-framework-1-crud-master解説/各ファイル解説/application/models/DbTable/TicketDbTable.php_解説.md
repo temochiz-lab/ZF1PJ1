@@ -6,7 +6,7 @@
 
 ## 役割
 
-Zend_Db_Tableによるticketsテーブル定義。
+Zend_Db_Tableによる [tickets](../../../../08_データベース.md#tickets) テーブル定義。
 
 ## 主な内容
 
@@ -18,13 +18,17 @@ Zend_Db_Tableによるticketsテーブル定義。
 - `application/models/TicketMapper.php`
 - `zf1app_db.sql`
 
+## 関連テーブル
+
+- [tickets](../../../../08_データベース.md#tickets): `$_name = 'tickets'` で対応付けられている実テーブル。
+
 ## 注意点
 
 - DB操作の実体はZend_Db_Table側に委譲される。
 
 ## 詳細
 
-`tickets` テーブルに対応するDbTableクラス。
+[tickets](../../../../08_データベース.md#tickets) テーブルに対応するDbTableクラス。
 
 `protected $_name = 'tickets';` により、Zend_Db_Table_Abstractが操作対象テーブルを認識する。検索、登録、更新、削除の実処理はこのクラス自身ではなく、`TicketMapper` から呼び出される。
 

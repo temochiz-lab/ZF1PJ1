@@ -20,6 +20,10 @@
 - `application/views/scripts/ticket/save.phtml`
 - `application/views/scripts/ticket/edit.phtml`
 
+## 関連テーブル
+
+- [tickets](../../../08_データベース.md#tickets): `id`、`title`、`notes`、`priority`、`files` がフォーム項目と対応する。
+
 ## 注意点
 
 - `files` が必須なので、編集時もファイル選択を求める挙動になりやすい。
@@ -28,7 +32,7 @@
 
 チケット登録・編集画面で使うフォーム定義。
 
-`init()` 内でhiddenの `id`、必須の `title`、必須の `notes`、選択式の `priority`、アップロード用の `files`、CSRF用の `csrf` を追加している。
+`init()` 内でhiddenの `id`、必須の `title`、必須の `notes`、選択式の `priority`、アップロード用の `files`、CSRF用の `csrf` を追加している。`csrf` 以外は [tickets](../../../08_データベース.md#tickets) のカラムと対応する。
 
 `title` と `notes` にはBootstrap系のCSSクラスやplaceholderを設定し、表示時にフォームらしい見た目になるようにしている。`priority` は Low / Normal / High / Emergency の選択肢を持つ。
 

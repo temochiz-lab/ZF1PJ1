@@ -22,6 +22,10 @@ ControllerとDBテーブルの橋渡しをするMapper。
 - `application/models/DbTable/TicketDbTable.php`
 - `application/models/Ticket.php`
 
+## 関連テーブル
+
+- [tickets](../../../08_データベース.md#tickets): `saveTopic()`、`findTopic()`、`fetchAllTopics()`、`fetchAllCvs()`、`deleteTopic()` の操作対象。
+
 ## 注意点
 
 - `deleteTopic()` は文字列連結のSQL条件なので、プレースホルダ利用が望ましい。
@@ -30,7 +34,7 @@ ControllerとDBテーブルの橋渡しをするMapper。
 
 ControllerとDBアクセスを分離するためのMapper。
 
-`getDbTable()` は `Application_Model_DbTable_TicketDbTable` を遅延生成し、以後のDB操作で使う。ControllerはSQLやDbTableを直接扱わず、このMapperのメソッドを呼ぶ。
+`getDbTable()` は `Application_Model_DbTable_TicketDbTable` を遅延生成し、以後の [tickets](../../../08_データベース.md#tickets) 操作で使う。ControllerはSQLやDbTableを直接扱わず、このMapperのメソッドを呼ぶ。
 
 `saveTopic()` は `Application_Model_Ticket` から配列を作り、`id` の有無でINSERTとUPDATEを分岐する。新規時は `created_at`、更新時は `updated_at` を設定する。
 

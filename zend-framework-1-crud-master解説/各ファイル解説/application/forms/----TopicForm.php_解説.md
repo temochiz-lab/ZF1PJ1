@@ -18,6 +18,10 @@
 
 - `application/forms/TopicBootstrapForm.php`
 
+## 関連テーブル
+
+- [tickets](../../../08_データベース.md#tickets): 現在のチケットCRUDの主テーブル。ただし、この旧フォームの項目名とは対応していない。
+
 ## 注意点
 
 - ファイル名先頭に `----` があり、退避・旧版ファイルの可能性が高い。
@@ -26,6 +30,6 @@
 
 旧版または未使用と思われるフォームクラス。
 
-項目名が `dataname`、`explanation`、`important` などになっており、現在の `tickets` テーブルの `title`、`notes`、`priority` とは対応していない。
+項目名が `dataname`、`explanation`、`important` などになっており、現在の [tickets](../../../08_データベース.md#tickets) テーブルの `title`、`notes`、`priority` とは対応していない。
 
 現在の `TicketController` では `TopicBootstrapForm` が使われているため、このファイルは実行経路に入らない。サンプルや流用元コードの残りとして見る。

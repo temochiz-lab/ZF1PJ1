@@ -19,6 +19,10 @@ CSVダウンロード用Action Helper。
 
 - `application/controllers/TicketController.php`
 
+## 関連テーブル
+
+- [tickets](../../../08_データベース.md#tickets): `TicketMapper#fetchAllCvs()` で取得されたデータがCSV出力される。
+
 ## 注意点
 
 - 出力後に `exit()` するため、通常のView描画は行われない。
@@ -27,7 +31,7 @@ CSVダウンロード用Action Helper。
 
 Controllerから `$this->_helper->Csv(...)` の形で呼び出されるCSV出力用Action Helper。
 
-`direct()` は呼び出し口で、実処理は `printExcel()` に渡している。`TicketController#cvsexportAction()` では、`TicketMapper::fetchAllCvs()` の結果とファイル名 `tickets` を渡す。
+`direct()` は呼び出し口で、実処理は `printExcel()` に渡している。`TicketController#cvsexportAction()` では、[tickets](../../../08_データベース.md#tickets) を元にした `TicketMapper::fetchAllCvs()` の結果とファイル名 `tickets` を渡す。
 
 `printExcel()` はCSV用のHTTPヘッダを設定し、必要に応じて先頭行へカラム名を追加し、CSV本文を作る。最後に `Content-Disposition` を使って `tickets-export.csv` のようなファイル名でダウンロードさせる。
 

@@ -1,4 +1,4 @@
-﻿# Ticket.php 解説
+# Ticket.php 解説
 
 対象ファイル: `application/models/Ticket.php`
 
@@ -18,6 +18,10 @@
 
 - `application/models/TicketMapper.php`
 
+## 関連テーブル
+
+- [tickets](../../../08_データベース.md#tickets): `id`、`title`、`notes`、`created_at`、`updated_at`、`files`、`priority` がモデルのプロパティと対応する。
+
 ## 注意点
 
 - DB行そのものではなく、アプリ側で扱うデータ入れ物。
@@ -26,7 +30,7 @@
 
 チケット1件分の値を持つドメインモデル。
 
-内部プロパティとして `id`、`title`、`notes`、`created_at`、`updated_at`、`files`、`priority` を持ち、それぞれにsetter/getterが用意されている。
+内部プロパティとして `id`、`title`、`notes`、`created_at`、`updated_at`、`files`、`priority` を持ち、それぞれにsetter/getterが用意されている。これらは [tickets](../../../08_データベース.md#tickets) の主なカラムと対応する。
 
 コンストラクタに配列を渡すと `setOptions()` が呼ばれ、キー名に対応するsetterが存在する場合だけ値をセットする。フォーム値やDB行データをまとめてモデルに変換するための仕組み。
 
